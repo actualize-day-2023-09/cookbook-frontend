@@ -4,27 +4,55 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      {/* header */}
+      <header>
+        <a href="#">Home</a> |<a href="#recipes-index">All Recipes</a> | <a href="#recipes-new"> New Recipe</a>
+      </header>
+
+      {/* new recipe form */}
+      <div id="recipes-new">
+        <h3>Make a new Recipe!</h3>
+        <form>
+          <div>
+            Title: <input type="text" />
+          </div>
+          <div>
+            Chef:
+            <input type="text" />
+          </div>
+          <button type="submit">Create the recipe</button>
+        </form>
       </div>
-      <h1>BATMAN + ROBIN</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      {/* index of recipes */}
+      <div id="recipes-index">
+        <h3>All the Recipes!</h3>
+        {/* first recipe */}
+        <div className="recipes">
+          <h2>Raw Eggs</h2>
+          <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="photo of eggs" />
+          <p>Chef: Peter Jang</p>
+          <button>more info</button>
+        </div>
+        {/* second recipe */}
+        <div className="recipes">
+          <h2>Mud Pie</h2>
+          <img
+            src="https://static.onecms.io/wp-content/uploads/sites/9/2017/12/mud-pie-XL-RECIPE2016.jpg"
+            alt="photo of eggs"
+          />
+          <p>Chef: Jay Wengrow</p>
+          <button>more info</button>
+        </div>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+
+      {/* footer */}
+      <footer>
+        <p>Copyright 2023</p>
+      </footer>
+    </div>
   );
 }
 
