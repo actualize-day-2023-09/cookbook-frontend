@@ -9,7 +9,7 @@ export function Modal(props) {
         <section className="modal-main">
           {props.children}
           <button className="close" type="button" onClick={props.onClose}>
-            Close
+            &#x2715;
           </button>
         </section>
       </div>
