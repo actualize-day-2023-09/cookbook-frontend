@@ -2,7 +2,7 @@
 import "./Modal.css";
 
 export function Modal(props) {
-  console.log("test modal");
+  console.log("test modal", props);
   if (props.show) {
     return (
       <div className="modal-background">

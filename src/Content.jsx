@@ -13,6 +13,11 @@ export function Content() {
     setIsRecipesShowVisible(true);
   };
 
+  //a function to toggle modal shoff to false, closes modal
+  const handleClose = () => {
+    setIsRecipesShowVisible(false);
+  };
+
   let recipes = [
     {
       id: 1,
@@ -39,7 +44,7 @@ export function Content() {
     <div>
       <RecipesNew />
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
-      <Modal show={isRecipesShowVisible}>
+      <Modal show={isRecipesShowVisible} onClose={handleClose}>
         <p>HELLO</p>
       </Modal>
     </div>
