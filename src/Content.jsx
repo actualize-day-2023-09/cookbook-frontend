@@ -1,7 +1,8 @@
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
+import { Modal } from "./Modal";
 
-// moves content to it's own file
+// import and call modal
 export function Content() {
   let recipes = [
     {
@@ -29,6 +30,9 @@ export function Content() {
     <div>
       <RecipesNew />
       <RecipesIndex recipes={recipes} />
+      <Modal show={true}>
+        <p>HELLO</p>
+      </Modal>
     </div>
   );
 }
