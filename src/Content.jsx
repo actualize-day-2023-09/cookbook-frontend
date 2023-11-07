@@ -34,7 +34,6 @@ export function Content() {
   return (
     <div>
       <RecipesNew />
-      {/* <button onClick={handleIndexRecipes}>LOAD RECIPES</button> */}
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
         <p>HELLO</p>

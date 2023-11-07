@@ -1,4 +1,3 @@
-// index moved into it's own file
 export function RecipesIndex(props) {
   console.log(props);
 
