@@ -13,7 +13,7 @@ export function RecipesIndex(props) {
             <h2>{recipe.title}</h2>
             <img src={recipe.image_url} alt="food pics" />
             <p>Chef: {recipe.chef} </p>
-            <button>More info!</button>
+            <button onClick={props.onShowRecipe}>More info!</button>
           </div>
         ))}
       </div>

@@ -1,9 +1,18 @@
+//imports useState Hook to keep track of data
+import { useState } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { Modal } from "./Modal";
 
-// import and call modal
 export function Content() {
+  //giving react the variable and the ability to set that variable
+  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
+
+  //a function to toggle modal show on
+  const handleShowRecipe = () => {
+    setIsRecipesShowVisible(true);
+  };
+
   let recipes = [
     {
       id: 1,
@@ -29,8 +38,8 @@ export function Content() {
   return (
     <div>
       <RecipesNew />
-      <RecipesIndex recipes={recipes} />
-      <Modal show={true}>
+      <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
+      <Modal show={isRecipesShowVisible}>
         <p>HELLO</p>
       </Modal>
     </div>
