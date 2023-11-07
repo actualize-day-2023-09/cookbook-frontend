@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 // index moved into it's own file
 export function RecipesIndex(props) {
   console.log(props);
