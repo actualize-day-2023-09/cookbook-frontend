@@ -7,8 +7,11 @@ import { Modal } from "./Modal";
 
 export function Content() {
   const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
-  //giving react the variable and the ability to set that variable
   const [recipes, setRecipes] = useState([]);
+  //giving react the variable and the ability to set that variable
+  const [currentRecipe, setCurrentRecipe] = useState({});
+
+  console.log("current recipe =", currentRecipe);
 
   // a function to make web request to index recipe data
   const handleIndexRecipes = () => {
@@ -18,9 +21,10 @@ export function Content() {
     });
   };
 
-  //a function to toggle modal show on
-  const handleShowRecipe = () => {
+  //a function to toggle modal show on, now also setting the currentRecipe variable
+  const handleShowRecipe = (recipe) => {
     setIsRecipesShowVisible(true);
+    setCurrentRecipe(recipe);
   };
 
   //a function to toggle modal shoff to false, closes modal
@@ -35,8 +39,13 @@ export function Content() {
     <div>
       <RecipesNew />
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
+      {/* changes modal to display currentRecipe data */}
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        <p>HELLO</p>
+        <h2>{currentRecipe.title}</h2>
+        <p>{currentRecipe.chef}</p>
+        <p>{currentRecipe.ingredients}</p>
+        <p>{currentRecipe.directions}</p>
+        <p>{currentRecipe.prep_time}</p>
       </Modal>
     </div>
   );

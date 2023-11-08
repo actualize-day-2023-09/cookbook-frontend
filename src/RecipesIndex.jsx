@@ -11,7 +11,8 @@ export function RecipesIndex(props) {
             <h2>{recipe.title}</h2>
             <img src={recipe.image_url} alt="food pics" />
             <p>Chef: {recipe.chef} </p>
-            <button onClick={props.onShowRecipe}>More info!</button>
+            {/* button now passes an instance of a recipe back to the content component */}
+            <button onClick={() => props.onShowRecipe(recipe)}>More info!</button>
           </div>
         ))}
       </div>
