@@ -1,8 +1,9 @@
-//imports axios to make web requests
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
+// imported recipes show component
+import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
 
 export function Content() {
@@ -41,11 +42,8 @@ export function Content() {
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
       {/* changes modal to display currentRecipe data */}
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        <h2>{currentRecipe.title}</h2>
-        <p>{currentRecipe.chef}</p>
-        <p>{currentRecipe.ingredients}</p>
-        <p>{currentRecipe.directions}</p>
-        <p>{currentRecipe.prep_time}</p>
+        {/* replaced data with a component */}
+        <RecipesShow recipe={currentRecipe} />
       </Modal>
     </div>
   );
