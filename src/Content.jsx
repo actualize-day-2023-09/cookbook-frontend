@@ -37,7 +37,7 @@ export function Content() {
   useEffect(handleIndexRecipes, []);
 
   return (
-    <div>
+    <div className="container">
       <RecipesNew />
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
       {/* changes modal to display currentRecipe data */}
