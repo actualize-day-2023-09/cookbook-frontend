@@ -1,10 +1,25 @@
-// new form moved into a file of it's own
+import axios from "axios";
+
 export function RecipesNew() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handle submit");
+    const params = new FormData(event.target);
+    axios
+      .post("http://localhost:3000/recipes.json", params)
+      .then((response) => {
+        console.log(response.data);
+        event.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
+  };
+
   return (
-    /* new recipe form */
     <div id="recipes-new">
       <h3>Make a new Recipe!</h3>
-      <form method="POST" action="http://localhost:3000/recipes.json">
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="formGroupExampleInput" className="form-label">
             Title
