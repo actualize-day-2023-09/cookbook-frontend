@@ -4,18 +4,25 @@ export function RecipesNew() {
     /* new recipe form */
     <div id="recipes-new">
       <h3>Make a new Recipe!</h3>
-      <form>
+      <form method="POST" action="http://localhost:3000/recipes.json">
         <div className="mb-3">
           <label htmlFor="formGroupExampleInput" className="form-label">
             Title
           </label>
-          <input type="text" className="form-control" id="formGroupExampleInput" placeholder="this is where you type" />
+          <input
+            name="title"
+            type="text"
+            className="form-control"
+            id="formGroupExampleInput"
+            placeholder="this is where you type"
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="formGroupExampleInput2" className="form-label">
             Chef
           </label>
           <input
+            name="chef"
             type="text"
             className="form-control"
             id="formGroupExampleInput2"
@@ -27,6 +34,7 @@ export function RecipesNew() {
             Ingredients
           </label>
           <input
+            name="ingredients"
             type="text"
             className="form-control"
             id="formGroupExampleInput2"
@@ -38,6 +46,7 @@ export function RecipesNew() {
             Prep time
           </label>
           <input
+            name="prep_time"
             type="text"
             className="form-control"
             id="formGroupExampleInput2"
@@ -49,6 +58,7 @@ export function RecipesNew() {
             Directions
           </label>
           <input
+            name="directions"
             type="text"
             className="form-control"
             id="formGroupExampleInput2"
@@ -60,6 +70,7 @@ export function RecipesNew() {
             Image URL
           </label>
           <input
+            name="image_url"
             type="text"
             className="form-control"
             id="formGroupExampleInput2"
