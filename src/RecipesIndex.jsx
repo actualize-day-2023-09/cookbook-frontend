@@ -4,15 +4,16 @@ export function RecipesIndex(props) {
   return (
     <div id="recipes-index">
       <h3>All the Recipes!</h3>
-      {/* loop of defined recipe data props from the parent component */}
-      <div className="cards">
+      <div className="row row-cols-1 row-cols-md-2 g-4">
         {props.recipes.map((recipe) => (
-          <div key={recipe.id} className="card">
-            <h2>{recipe.title}</h2>
-            <img src={recipe.image_url} alt="food pics" />
-            <p>Chef: {recipe.chef} </p>
-            {/* button now passes an instance of a recipe back to the content component */}
-            <button onClick={() => props.onShowRecipe(recipe)}>More info!</button>
+          <div key={recipe.id} className="col">
+            <div className="card">
+              <img src={recipe.image_url} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">{recipe.title}</h5>
+                <p className="card-text">{recipe.chef}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
