@@ -6,6 +6,10 @@ export function RecipesShow(props) {
     event.target.reset();
   };
 
+  const handleClick = () => {
+    props.onDestroyRecipe(props.recipe);
+  };
+
   console.log(props);
   return (
     <div id="recipes-show">
@@ -32,6 +36,7 @@ export function RecipesShow(props) {
         </div>
         <button type="submit">Update recipe</button>
       </form>
+      <button onClick={handleClick}>Delete Recipe</button>
     </div>
   );
 }

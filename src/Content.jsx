@@ -55,6 +55,13 @@ export function Content() {
     });
   };
 
+  const handleDestroyRecipe = (recipe) => {
+    axios.delete(`http://localhost:3000/recipes/${recipe.id}.json`).then((response) => {
+      setRecipes(recipes.filter((r) => r.id !== recipe.id));
+      handleClose();
+    });
+  };
+
   //react hook that calls a function on page load ONCE
   useEffect(handleIndexRecipes, []);
 
@@ -65,7 +72,7 @@ export function Content() {
       {/* changes modal to display currentRecipe data */}
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
         {/* replaced data with a component */}
-        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} />
+        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} onDestroyRecipe={handleDestroyRecipe} />
       </Modal>
     </div>
   );
