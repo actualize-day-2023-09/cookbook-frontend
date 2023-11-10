@@ -39,6 +39,22 @@ export function Content() {
     });
   };
 
+  const handleUpdateRecipe = (id, params) => {
+    axios.patch(`http://localhost:3000/recipes/${id}.json`, params).then((response) => {
+      setRecipes(
+        recipes.map((recipe) => {
+          if (recipe.id === response.data.id) {
+            return response.data;
+          } else {
+            return recipe;
+          }
+        })
+      );
+      setCurrentRecipe(response.data);
+      setIsRecipesShowVisible(false);
+    });
+  };
+
   //react hook that calls a function on page load ONCE
   useEffect(handleIndexRecipes, []);
 
@@ -49,7 +65,7 @@ export function Content() {
       {/* changes modal to display currentRecipe data */}
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
         {/* replaced data with a component */}
-        <RecipesShow recipe={currentRecipe} />
+        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} />
       </Modal>
     </div>
   );
