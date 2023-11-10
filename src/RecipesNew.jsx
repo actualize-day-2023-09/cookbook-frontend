@@ -1,19 +1,10 @@
-import axios from "axios";
-
-export function RecipesNew() {
+export function RecipesNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handle submit");
     const params = new FormData(event.target);
-    axios
-      .post("http://localhost:3000/recipes.json", params)
-      .then((response) => {
-        console.log(response.data);
-        event.target.reset();
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-      });
+    console.log("handle submit", params);
+    props.onCreateRecipe(params);
+    event.target.reset();
   };
 
   return (

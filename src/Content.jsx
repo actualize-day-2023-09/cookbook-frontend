@@ -33,12 +33,18 @@ export function Content() {
     setIsRecipesShowVisible(false);
   };
 
+  const handleCreateRecipe = (params) => {
+    axios.post("http://localhost:3000/recipes.json", params).then((response) => {
+      setRecipes([...recipes, response.data]);
+    });
+  };
+
   //react hook that calls a function on page load ONCE
   useEffect(handleIndexRecipes, []);
 
   return (
     <div className="container">
-      <RecipesNew />
+      <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
       {/* changes modal to display currentRecipe data */}
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
