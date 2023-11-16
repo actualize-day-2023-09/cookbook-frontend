@@ -6,6 +6,8 @@ import { RecipesNew } from "./RecipesNew";
 import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
@@ -70,6 +72,8 @@ export function Content() {
     <div className="container">
       <h3>Signup!</h3>
       <Signup />
+      <Login />
+      <LogoutLink />
       <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
       {/* changes modal to display currentRecipe data */}
