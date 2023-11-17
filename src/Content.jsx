@@ -6,6 +6,7 @@ import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
+import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 
@@ -72,15 +73,16 @@ export function Content() {
     <div className="container">
       <Routes>
         <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/recipes/new" element={<RecipesNew onCreateRecipe={handleCreateRecipe} />} />
+        <Route path="/recipes" element={<RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />} />
       </Routes>
 
-      <Login />
+      <h1>Welcome to COOKR! We're happy you're here!</h1>
       <LogoutLink />
-      <RecipesNew onCreateRecipe={handleCreateRecipe} />
-      <RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />
-      {/* changes modal to display currentRecipe data */}
+
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        {/* replaced data with a component */}
         <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} onDestroyRecipe={handleDestroyRecipe} />
       </Modal>
     </div>

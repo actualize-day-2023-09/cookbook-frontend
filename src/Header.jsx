@@ -63,14 +63,14 @@ export function Header() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#recipes-new">
+                    <Link className="dropdown-item" to="/recipes/new">
                       New Recipe
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#recipes-index">
+                    <Link className="dropdown-item" to="/recipes">
                       All Recipes
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
@@ -85,6 +85,16 @@ export function Header() {
               <li className="nav-item">
                 <a className="nav-link" onClick={handleSignupShow}>
                   Signup
+                </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" to="/logout">
+                  Logout
                 </a>
               </li>
             </ul>
