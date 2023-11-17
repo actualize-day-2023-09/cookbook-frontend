@@ -5,6 +5,7 @@ export function RecipesNew(props) {
     console.log("handle submit", params);
     props.onCreateRecipe(params);
     event.target.reset();
+    window.location.href = "/recipes";
   };
 
   return (
