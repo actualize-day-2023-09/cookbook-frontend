@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { About } from "./About";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
-// imported recipes show component
 import { RecipesShow } from "./RecipesShow";
 import { Modal } from "./Modal";
 import { Login } from "./Login";
@@ -69,6 +70,10 @@ export function Content() {
 
   return (
     <div className="container">
+      <Routes>
+        <Route path="/about" element={<About />} />
+      </Routes>
+
       <Login />
       <LogoutLink />
       <RecipesNew onCreateRecipe={handleCreateRecipe} />
