@@ -9,6 +9,7 @@ import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { RecipesShowPage } from "./RecipesShowPage";
 
 export function Content() {
   const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
@@ -77,6 +78,7 @@ export function Content() {
         <Route path="/login" element={<Login />} />
         <Route path="/recipes/new" element={<RecipesNew onCreateRecipe={handleCreateRecipe} />} />
         <Route path="/recipes" element={<RecipesIndex recipes={recipes} onShowRecipe={handleShowRecipe} />} />
+        <Route path="/recipes/:id" element={<RecipesShowPage />} />
       </Routes>
 
       <h1>Welcome to COOKR! We're happy you're here!</h1>
