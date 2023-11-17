@@ -1,7 +1,26 @@
-// header moved into a file of it's own
+import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { useState } from "react";
+
 export function Header() {
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
+
+  // opens the modal
+  const handleSignupShow = () => {
+    setIsSignupVisible(true);
+  };
+
+  //closes modal
+  const handleClose = () => {
+    setIsSignupVisible(false);
+  };
+
   return (
     <header>
+      <Modal show={isSignupVisible} onClose={handleClose}>
+        <Signup />
+      </Modal>
+
       {/* start bootstrap nav here */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -58,7 +77,9 @@ export function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled">Edit Coming soon!</a>
+                <a className="nav-link" onClick={handleSignupShow}>
+                  Signup
+                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
