@@ -4,8 +4,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function Header() {
-  const [isSignupVisible, setIsSignupVisible] = useState(false);
-
   // opens the modal
   const handleSignupShow = () => {
     setIsSignupVisible(true);
@@ -15,6 +13,34 @@ export function Header() {
   const handleClose = () => {
     setIsSignupVisible(false);
   };
+
+  let authenticationLinks;
+  if (localStorage.jwt === undefined) {
+    authenticationLinks = (
+      <>
+        <li className="nav-item">
+          <a className="nav-link" onClick={handleSignupShow}>
+            Signup
+          </a>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </li>
+      </>
+    );
+  } else {
+    authenticationLinks = (
+      <li className="nav-item">
+        <a className="nav-link" to="/logout">
+          Logout
+        </a>
+      </li>
+    );
+  }
+
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
 
   return (
     <header>
@@ -82,21 +108,9 @@ export function Header() {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={handleSignupShow}>
-                  Signup
-                </a>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" to="/logout">
-                  Logout
-                </a>
-              </li>
+              {authenticationLinks}
+              {/* LOGGED OUT JUNK */}
+              {/* LOGGED IN JUNK */}
             </ul>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
