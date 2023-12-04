@@ -15,7 +15,13 @@ export function RecipesIndex(props) {
           aria-label="Search"
           value={searchFilter}
           onChange={(event) => setSearchFilter(event.target.value)}
+          list="titles"
         />
+        <datalist id="titles">
+          {props.recipes.map((recipe) => (
+            <option key={recipe.id} value={recipe.title} />
+          ))}
+        </datalist>
         <button className="btn btn-outline-info" type="submit">
           Search
         </button>
