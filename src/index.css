@@ -48,3 +48,7 @@ button:hover {
   background-color: fuchsia;
 }
 /* end of buttons */
+
+small {
+  color: red;
+}
